@@ -1,4 +1,3 @@
-import React from "react";
 import facebook from "../../assets/facebook 1.svg";
 import twitter from "../../assets/twitter 1.svg";
 import instagram from "../../assets/instagram 1.svg";
@@ -25,7 +24,7 @@ import Bitcoin from "../../assets/Bitcoin.svg";
 import Discover from '../../assets/Discover.svg'
 
 
-const Footer: React.FC  = () => {
+const Footer= () => {
   return (
     <footer>
       <div className="container">
