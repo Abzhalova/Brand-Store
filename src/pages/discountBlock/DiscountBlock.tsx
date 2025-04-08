@@ -1,6 +1,4 @@
 import React from "react";
-import MaskGroup from "../../assets/Mask group section1.svg";
-import RectangleImg from "../../assets/Rectangle section2.svg";
 import EllipseImg from "../../assets/Ellipse section3.svg";
 import removeBg from "../../assets/image-removebg-preview section4.svg";
 import headerFon from "../../assets/header-fon.svg";

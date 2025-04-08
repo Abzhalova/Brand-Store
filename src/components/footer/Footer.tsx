@@ -1,4 +1,4 @@
-import React , {FC} from "react";
+import React from "react";
 import facebook from "../../assets/facebook 1.svg";
 import twitter from "../../assets/twitter 1.svg";
 import instagram from "../../assets/instagram 1.svg";

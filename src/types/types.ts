@@ -17,6 +17,7 @@ export interface Product {
         slug: string;
     }
     images: string[];
+    quantity: number;
 }
 
 export interface Category {
@@ -52,5 +53,5 @@ export interface CartItem {
         slug: string;
     }
     images: string[];
-    quantity?: number;
+    quantity: number;
 }

@@ -13,6 +13,7 @@ import {
   MenuItem,
   Pagination,
   Select,
+  SelectChangeEvent,
   Stack,
 } from "@mui/material";
 import { CartItem, Product } from "../../types/types";
@@ -31,21 +32,21 @@ const ProductsPage: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleCategoryChange = (
-    event: React.ChangeEvent<{ value: unknown }>
-  ) => {
+    event: SelectChangeEvent<{ value: string }>
+  ): void => {
     const category = event.target.value as string;
     dispatch(filterByCategory(category === "Все категории" ? null : category));
   };
 
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     page: number
-  ) => {
+  ): void => {
     dispatch(setCurrentPage(page));
   };
 
   const handleAddToCart = (product: CartItem) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   useEffect(() => {
@@ -71,23 +72,29 @@ const ProductsPage: React.FC = () => {
 
   return (
     <>
-     <div style={{ display: "flex", justifyContent: "flex-end" , margin:'10px 10px 10px' }}>
-     <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        label="Age"
-        value={selectedCategory || "Все категории"}
-        sx={{ width: "auto" }} 
-        onChange={handleCategoryChange}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          margin: "10px 10px 10px",
+        }}
       >
-        <MenuItem value={"Все категории"}>Все категории</MenuItem>
-        {categories.map((category) => (
-          <MenuItem value={category.name} key={category.id}>
-            {category.name}
-          </MenuItem>
-        ))}
-      </Select>
-     </div>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Age"
+          value={{value: selectedCategory || ""}}
+          sx={{ width: "auto" }}
+          onChange={handleCategoryChange}
+        >
+          <MenuItem value={"Все категории"}>Все категории</MenuItem>
+          {categories.map((category) => (
+            <MenuItem value={category.name} key={category.id}>
+              {category.name}
+            </MenuItem>
+          ))}
+        </Select>
+      </div>
       <div className="flex flex-wrap gap-20 justify-around mt-10 cursor-pointer">
         {currentPageProducts.map((product: Product) => (
           <div key={product.id} className="w-[215px] h-full">
@@ -102,7 +109,10 @@ const ProductsPage: React.FC = () => {
               {product.price} сом
             </p>
             <p className="text-xl font-sans mt-2">{product.title}</p>
-            <button className="w-full h-10 rounded-2xl text-white text-md font-mono mt-5 bg-slate-600 hover:bg-slate-400" onClick={() => handleAddToCart(product)}>
+            <button
+              className="w-full h-10 rounded-2xl text-white text-md font-mono mt-5 bg-slate-600 hover:bg-slate-400"
+              onClick={() => handleAddToCart({ ...product, quantity: 1 })}
+            >
               В корзину
             </button>
           </div>

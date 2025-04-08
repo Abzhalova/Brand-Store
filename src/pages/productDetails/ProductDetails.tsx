@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import {
@@ -7,8 +7,6 @@ import {
 } from "../../features/slices/productsSlice";
 import { Box, LinearProgress } from "@mui/material";
 
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import { CartItem } from "../../types/types";
 import { addToCart } from "../../features/slices/cartSlice";
 
@@ -32,7 +30,7 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = (product: CartItem) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({...product, quantity: 1}));
   };
 
   useEffect(() => {
@@ -89,17 +87,17 @@ const ProductDetails = () => {
                 {productById.description}
               </span>
             </p>
-            <Link to={`/update-product/${productById.id}`} className="py-3 px-14 rounded-lg bg font-mono mt-5 bg-green-600 hover:bg-green-400 text-white mt-10 mr-10">
+            <Link to={`/update-product/${productById.id}`} className="py-3 px-14 rounded-lg bg font-mono  bg-green-600 hover:bg-green-400 text-white mt-10 mr-10">
               Изменить
             </Link>
             <button
-              className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-slate-600 hover:bg-slate-400 text-white mt-10 mr-10"
-              onClick={() => handleAddToCart(productById)}
+              className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-slate-600 hover:bg-slate-400 text-white  mr-10"
+              onClick={() => handleAddToCart({...productById, quantity: 1})}
             >
               Добавить в корзину
             </button>
             <button
-              className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-red-600 hover:bg-red-400 text-white mt-10"
+              className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-red-600 hover:bg-red-400 text-white "
               onClick={() => handleDeleteProduct(productById.id)}
             >
               Удалить
