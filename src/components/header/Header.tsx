@@ -12,14 +12,18 @@ import "./header.css";
 import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { searchProducts } from "../../features/slices/productsSlice";
+import useDebounce from "../../hooks/redux-hooks";
 
 const Header: React.FC = () => {
   const [query, setQuery] = useState("");
   const dispatch = useAppDispatch();
+  const debounceQuery = useDebounce(query, 400)
 
   useEffect(() => {
-    dispatch(searchProducts(query));
-  }, [query, dispatch]);
+    if(debounceQuery){
+      dispatch(searchProducts(debounceQuery));
+    }
+  }, [debounceQuery, dispatch]);
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FAFAFA" }}>

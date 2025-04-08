@@ -1,10 +1,15 @@
+import Footer from "../../components/footer/Footer";
+import BrandsBlock from "../brandBlock/BrandsBlock";
+import DiscountBlock from "../discountBlock/DiscountBlock";
 
 const MainPage: React.FC = () => {
   return (
     <>
-      <h1>MainPage</h1>
+      <DiscountBlock />
+      <BrandsBlock />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

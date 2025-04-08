@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import ProductDetails from "./pages/productDetails/ProductDetails";
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import Header from "./components/header/Header";
+import CreateProduct from "./pages/createProduct/CreateProduct";
+import UpdateProduct from "./pages/updateProduct/UpdateProduct";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/create-product" element={<CreateProduct />} />
+        <Route path="/update-product/:id" element={<UpdateProduct/>} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

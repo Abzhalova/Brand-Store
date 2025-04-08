@@ -16,5 +16,10 @@ export const pages: HeaderNavText[] =[
         id: 3,
         title: 'Корзина',
         path: '/cart'
+    },
+    {
+        id: 4,
+        title: 'Создать',
+        path: '/create-product'
     }
 ]

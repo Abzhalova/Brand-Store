@@ -1,0 +1,42 @@
+
+footer{
+    width: 1520px;
+    height: 430px;
+    padding:  50px;
+    background-color: #F9FAFB;
+}
+.container{
+    width: 1420px;
+    height: 365px;
+}
+
+.card{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h3-footer{
+    color: #1F2937;
+    letter-spacing: 1px;
+   font-weight: 500;
+
+}
+
+.p-footer{
+    color: #9CA3AF;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.about-block{
+    width: 650px;
+    height: 200px;
+   
+}
+
+.logo-block{
+    width: 600px;
+    height: 200px;
+}

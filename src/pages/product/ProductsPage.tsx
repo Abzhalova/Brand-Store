@@ -71,11 +71,13 @@ const ProductsPage: React.FC = () => {
 
   return (
     <>
-      <Select
+     <div style={{ display: "flex", justifyContent: "flex-end" , margin:'10px 10px 10px' }}>
+     <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         label="Age"
         value={selectedCategory || "Все категории"}
+        sx={{ width: "auto" }} 
         onChange={handleCategoryChange}
       >
         <MenuItem value={"Все категории"}>Все категории</MenuItem>
@@ -85,6 +87,7 @@ const ProductsPage: React.FC = () => {
           </MenuItem>
         ))}
       </Select>
+     </div>
       <div className="flex flex-wrap gap-20 justify-around mt-10 cursor-pointer">
         {currentPageProducts.map((product: Product) => (
           <div key={product.id} className="w-[215px] h-full">

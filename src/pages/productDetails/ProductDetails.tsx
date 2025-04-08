@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import {
   deleteProduct,
@@ -68,7 +68,7 @@ const ProductDetails = () => {
               />
             ))}
           </div>
-          <img src={selectImg} alt="error :(" className="w-[600px]" />
+          <img src={selectImg} alt="error :(" className="w-[600px] h-[600]" />
           <div>
             <h1 className=" text-lg text-gray-400">
               Название:{" "}
@@ -89,9 +89,9 @@ const ProductDetails = () => {
                 {productById.description}
               </span>
             </p>
-            <button className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-green-600 hover:bg-green-400 text-white mt-10 mr-10">
+            <Link to={`/update-product/${productById.id}`} className="py-3 px-14 rounded-lg bg font-mono mt-5 bg-green-600 hover:bg-green-400 text-white mt-10 mr-10">
               Изменить
-            </button>
+            </Link>
             <button
               className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-slate-600 hover:bg-slate-400 text-white mt-10 mr-10"
               onClick={() => handleAddToCart(productById)}
