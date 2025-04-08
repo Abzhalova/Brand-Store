@@ -5,12 +5,12 @@ export const pages: HeaderNavText[] =[
     {
         id: 1,
         title: 'Главная',
-        path: '/'
+        path: '/main'
     },
     {
         id: 2,
         title: 'Магазин',
-        path: '/products'
+        path: '/'
     },
     {
         id: 3,
