@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../../App.css'
 
 const CreateProduct = () => {
   const [title, setTitle] = useState<string>("");
@@ -38,7 +39,7 @@ const CreateProduct = () => {
             const response = await axios.post( "https://api.escuelajs.co/api/v1/products/" , product)
             console.log(response.data);
             alert('Продукт успешно создан!')
-            navigate('/products')
+            navigate('/')
         } catch (error) {
             console.log(error);
              
@@ -47,8 +48,8 @@ const CreateProduct = () => {
  }
 
   return (
-    <div className="w-[300px] mx-auto flex flex-col justify-start">
-      <h1 className="text-4xl">Создать продукт</h1>
+    <div className="w-[300px] mx-auto my-20 flex flex-col justify-start">
+      <h1 className="text-4xl " style={{ marginLeft: '12px'}}>Создать продукт</h1>
       <input
         type="text"
         placeholder="Название"
@@ -61,20 +62,20 @@ const CreateProduct = () => {
         placeholder="Цена"
         value={price}
         onChange={(e) => setPrice(Number(e.target.value))}
-        className="w-12 h-10 border border-black rounded-md pl-2 mt-2"
+        className="w-12 h-10 border border-black rounded-md pl-2 mt-3"
       />
       <textarea
         placeholder="Описание"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="w-full h-10 border border-black rounded-md pl-2 mt-2"
+        className="w-full h-10 border border-black rounded-md pl-2 mt-3"
       />
       <input
         type="number"
         placeholder="Категория"
         value={categoryId}
         onChange={(e) => setCategoryId(Number(e.target.value))}
-        className="w-full h-10 border border-black rounded-md pl-2 mt-2"
+        className="w-full h-10 border border-black rounded-md pl-2 mt-5"
       />
       <div>
         {images.map((url, index) => (

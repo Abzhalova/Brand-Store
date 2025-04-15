@@ -95,6 +95,15 @@ const productsSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<number>) => {
       state.currentPage = action.payload;
     },
+    toggleLike: (state, action: PayloadAction<number>) => {
+      const product = state.filteredProducts.find(
+        (p) => p.id === action.payload
+      );
+
+      if (product) {
+        product.like = !product.like;
+      }
+    },
   },
   extraReducers: (build) => {
     build
@@ -105,8 +114,14 @@ const productsSlice = createSlice({
         fetchProducts.fulfilled,
         (state, action: PayloadAction<Product[]>) => {
           state.loading = false;
-          state.products = action.payload;
-          state.filteredProducts = action.payload;
+          state.products = action.payload.map((product) => ({
+            ...product,
+            like: false,
+          }));
+          state.filteredProducts = action.payload.map((product) => ({
+            ...product,
+            like: false,
+          }));
         }
       )
       .addCase(fetchProducts.rejected, (state) => {
@@ -166,5 +181,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { filterByCategory, setCurrentPage } = productsSlice.actions;
+export const { filterByCategory, setCurrentPage, toggleLike } =
+  productsSlice.actions;
 export default productsSlice.reducer;

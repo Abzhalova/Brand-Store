@@ -13,13 +13,18 @@ import {
   removeFromCart,
   updateQuantity,
 } from "../../features/slices/cartSlice";
-
+import Cart from "../../assets/download.png";
 
 const CartPage: React.FC = () => {
   const { items, totalPrice } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
-  if (items.length === 0) return <h2>Корзина пусто</h2>;
+  if (items.length === 0)
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <img src={Cart} alt="error" />
+      </div>
+    );
 
   return (
     <>
@@ -52,7 +57,7 @@ const CartPage: React.FC = () => {
                 <TableCell align="right">{item.category.name}</TableCell>
                 <TableCell align="right">
                   <input
-                  className="w-10"
+                    className="w-10"
                     type="number"
                     value={item.quantity}
                     min="1"
@@ -79,15 +84,13 @@ const CartPage: React.FC = () => {
           </TableBody>
         </Table>
         <div className="w-full  h-[100px] flex justify-between items-center">
-             <p>
-              Общая стоимость: {totalPrice} сом
-             </p>
-             <button
-              className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-red-600 hover:bg-red-400 text-white "
-              onClick={() => dispatch(clearCart())}
-            >
-              Очистить корзину
-            </button>
+          <p>Общая стоимость: {totalPrice} сом</p>
+          <button
+            className="w-[200px] h-[40px] rounded-lg bg font-mono mt-5 bg-red-600 hover:bg-red-400 text-white "
+            onClick={() => dispatch(clearCart())}
+          >
+            Очистить корзину
+          </button>
         </div>
       </TableContainer>
     </>

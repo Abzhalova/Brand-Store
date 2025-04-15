@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/notFoundPage/NotFoundPage";
 import Header from './components/header/Header'
 import CreateProduct from "./pages/createProduct/CreateProduct";
 import UpdateProduct from "./pages/updateProduct/UpdateProduct";
+import FavoriteProducts from "./pages/favoriteProducts/FavoriteProducts";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/create-product" element={<CreateProduct />} />
+        <Route path="/favorite-products" element={<FavoriteProducts />} />
         <Route path="/update-product/:id" element={<UpdateProduct/>} />
         <Route path="/product-details/:id" element={<ProductDetails />} />
         <Route path="*" element={<NotFoundPage />} />

@@ -7,15 +7,8 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Tooltip from "@mui/material/Tooltip";
-import { InputAdornment, TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { pages } from "../../constants/constants";
-import { useState, useEffect } from "react";
-import { useAppDispatch } from "../../hooks/redux-hooks";
-import { searchProducts } from "../../features/slices/productsSlice";
-import useDebounce from "../../hooks/redux-hooks";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -30,16 +23,6 @@ function Header() {
     setAnchorElNav(null);
   };
 
-  const [query, setQuery] = useState("");
-  const dispatch = useAppDispatch();
-  const debounceQuery = useDebounce(query, 400);
-
-  useEffect(() => {
-    if (debounceQuery) {
-      dispatch(searchProducts(debounceQuery));
-    }
-  }, [debounceQuery, dispatch]);
-
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FAFAFA" }}>
       <Container maxWidth="xl">
@@ -50,7 +33,7 @@ function Header() {
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
+              mr: 100,
               display: { xs: "none", md: "flex" },
               fontFamily: "Alata",
               fontWeight: 500,
@@ -153,28 +136,6 @@ function Header() {
                 </Typography>
               </Link>
             ))}
-          </Box>
-          <Box>
-            <Tooltip title="Open settings">
-              <TextField
-                id="standard-basic"
-                variant="standard"
-                placeholder="Поиск..."
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{
-                  width: "100px",
-                  fontFamily: "Alata",
-                  letterSpacing: "2px",
-                }}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </Tooltip>
           </Box>
         </Toolbar>
       </Container>

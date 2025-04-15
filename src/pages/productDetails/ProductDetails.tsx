@@ -26,7 +26,7 @@ const ProductDetails = () => {
 
   const handleDeleteProduct = (id: number) => {
     dispatch(deleteProduct(id));
-    navigate("/products");
+    navigate("/");
   };
 
   const handleAddToCart = (product: CartItem) => {

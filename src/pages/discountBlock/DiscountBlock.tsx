@@ -13,7 +13,7 @@ const DiscountBlock: React.FC = () => {
         display: "flex",
         position: "relative",
         background: "#F7C59F",
-        top:'50px'
+        top: "50px",
       }}
     >
       <div style={{ position: "absolute" }}>
@@ -38,18 +38,61 @@ const DiscountBlock: React.FC = () => {
         <img src={EllipseImg} alt="error" style={{ position: "relative" }} />
         <img src={removeBg} alt="error" style={{ position: "absolute" }} />
       </div>
-      <div style={{position:'absolute', width:'500px', height: '270px' , background: '#1F2937',
-        padding:'40px 50px', margin:'150px 200px'}}>
+      <div
+        style={{
+          position: "absolute",
+          width: "500px",
+          height: "270px",
+          background: "#1F2937",
+          padding: "40px 50px",
+          margin: "150px 200px",
+        }}
+      >
         <div>
-          <h1 style={{color:'white' , marginBottom:' 15px', fontFamily: "Almarai"}} className="text-4xl">Получите скидку до 30%</h1>
-          <h1 style={{color: "#F7C59F", marginBottom:' 15px', fontFamily: "Almarai"}}>Новые поступления</h1>
-          <p style={{color: '#F3F4F6', marginBottom:' 25px', fontFamily: "Almarai"}}>Представляем нашу последнюю коллекцию продукции</p>
+          <h1
+            style={{
+              color: "white",
+              marginBottom: " 15px",
+              fontFamily: "Almarai",
+            }}
+            className="text-4xl"
+          >
+            Получите скидку до 30%
+          </h1>
+          <h1
+            style={{
+              color: "#F7C59F",
+              marginBottom: " 15px",
+              fontFamily: "Almarai",
+            }}
+          >
+            Новые поступления
+          </h1>
+          <p
+            style={{
+              color: "#F3F4F6",
+              marginBottom: " 25px",
+              fontFamily: "Almarai",
+            }}
+          >
+            Представляем нашу последнюю коллекцию продукции
+          </p>
         </div>
-     
-        <button style={{width:'200px', height: '30px',  display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",color: '#F3F4F6',background: "#111827", border: '1px solid #F3F4F6'}}>
-          <Link to='/products'>ОФОРМИТЬ ЗАКАЗ</Link><img src={vector} alt="error" />
+
+        <button
+          style={{
+            width: "200px",
+            height: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            color: "#F3F4F6",
+            background: "#111827",
+            border: "1px solid #F3F4F6",
+          }}
+        >
+          <Link to="/">ОФОРМИТЬ ЗАКАЗ</Link>
+          <img src={vector} alt="error" />
         </button>
       </div>
     </div>
