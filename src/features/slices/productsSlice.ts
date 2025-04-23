@@ -15,7 +15,7 @@ const initialState: ProductState = {
   error: null,
 };
 
-const API = "https://api.escuelajs.co/api/v1";
+const API = import.meta.env.VITE_API_URL
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",

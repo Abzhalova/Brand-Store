@@ -25,6 +25,8 @@ const CreateProduct = () => {
     setImages([...images, ""] as string[]);
   };
 
+  const API = import.meta.env.VITE_API_URL
+
  const handleSubmit = async () => {
     if(title && price > 0 && images.every(url => url !== '')) {
         try {
@@ -36,7 +38,7 @@ const CreateProduct = () => {
                 images
             }
             
-            const response = await axios.post( "https://api.escuelajs.co/api/v1/products/" , product)
+            const response = await axios.post( `${API}/products` , product)
             console.log(response.data);
             alert('Продукт успешно создан!')
             navigate('/')

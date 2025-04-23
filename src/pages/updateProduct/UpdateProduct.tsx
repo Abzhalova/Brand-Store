@@ -12,11 +12,14 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
+  
+  const API = import.meta.env.VITE_API_URL
+
   useEffect(() => {
     const fetchProductById = async () => {
       try {
         const { data } = await axios.get(
-          `https://api.escuelajs.co/api/v1/products/${id}`
+          `${API}/products/${id}`
         );
 
         setTitle(data.title);
@@ -55,7 +58,7 @@ const UpdateProduct = () => {
           images,
         };
 
-         await axios.put(`https://api.escuelajs.co/api/v1/products/${id}`, updateProduct)
+         await axios.put(`${API}/products/${id}`, updateProduct)
         alert('Продукт изменен!')
         navigate('/')
       } catch (error) {
